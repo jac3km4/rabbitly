@@ -1,0 +1,88 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: fd65e0064d8c15001bbe9aad63151c19156e77254f8939237343f870c7313982
+
+name:           rabbitly
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/jac3km4/rabbitly#readme>
+homepage:       https://github.com/jac3km4/rabbitly#readme
+bug-reports:    https://github.com/jac3km4/rabbitly/issues
+author:         jac3km4
+maintainer:     jac3km4@gmail.com
+copyright:      2020 jac3km4
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/jac3km4/rabbitly
+
+library
+  exposed-modules:
+      Network.RabbitMQ
+      Network.RabbitMQ.Frame
+      Network.RabbitMQ.Property
+      Network.RabbitMQ.Protocol
+      Network.RabbitMQ.Types
+  other-modules:
+      Paths_rabbitly
+  hs-source-dirs:
+      src
+  default-extensions: OverloadedStrings NamedFieldPuns LambdaCase
+  ghc-options: -Wall
+  build-depends:
+      base >=4.7 && <5
+    , bytestring >=0.10
+    , bytestring-strict-builder >=0.4
+    , cereal >=0.5
+    , containers >=0.6
+    , exceptions >=0.10
+    , mtl >=2.2
+    , network >=3.1
+    , streamly >=0.7.2
+    , streamly-bytestring >=0.1
+    , text >=1.2
+    , unordered-containers >=0.2
+  default-language: Haskell2010
+
+executable rabbitly-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_rabbitly
+  hs-source-dirs:
+      app
+  default-extensions: OverloadedStrings NamedFieldPuns LambdaCase
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , rabbitly
+    , streamly >=0.7.2
+  default-language: Haskell2010
+
+test-suite rabbitly-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_rabbitly
+  hs-source-dirs:
+      test
+  default-extensions: OverloadedStrings NamedFieldPuns LambdaCase
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , cereal
+    , hedgehog
+    , rabbitly
+    , tasty
+    , tasty-hedgehog
+    , unordered-containers
+  default-language: Haskell2010

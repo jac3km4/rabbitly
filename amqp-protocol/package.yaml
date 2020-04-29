@@ -1,0 +1,31 @@
+name:                amqp-protocol
+version:             0.1.0.0
+github:              "githubuser/amqp-protocol"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2020 Author name here"
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/amqp-protocol#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+default-extensions:
+- OverloadedStrings
+- NamedFieldPuns
+- TupleSections
+
+executables:
+  amqp-protocol-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - bytestring
+    - xeno
+    - unordered-containers
